@@ -1,12 +1,16 @@
 Parameters:
-  InstanceTypeParameter:
+
+  InstanceType:
+    Description: WebServer EC2 instance type (has default, AllowedValues)
     Type: String
     Default: t2.micro
     AllowedValues:
+      - t1.micro
+      - t2.nano
       - t2.micro
-      - m1.small
-      - m1.large
-    Description: Enter t2.micro, m1.small, or m1.large. Default is t2.micro.
+    #Constraint Description will be displayed, incase of error
+    ConstraintDescription: Choose, t1.micro, t2.nana, t2.micro from the list. Default is t2.micro
+
   KeyName:
     Description: Name of an existing EC2 KeyPair to enable SSH access to the instances. Linked to AWS Parameter
     Type: AWS::EC2::KeyPair::KeyName
@@ -14,6 +18,11 @@ Parameters:
 
   InstanceName:
     Description: Enter Your instance name
+    Type: String
+
+  SomePassword:
+    NoEcho: true #Noecho: the string will not be visable
+    Description: Hidden Password Example
     Type: String
 
 Resources:
