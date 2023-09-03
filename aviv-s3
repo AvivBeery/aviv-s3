@@ -20,10 +20,6 @@ Parameters:
     Description: Enter Your instance name
     Type: String
 
-  SomePassword:
-    NoEcho: true #Noecho: the string will not be visable
-    Description: Hidden Password Example
-    Type: String
 
 Resources:
   MyEC2Instance:
