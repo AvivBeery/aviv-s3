@@ -1,7 +1,20 @@
 Resources:
-  S3Bucket:
-    Type: 'AWS::S3::Bucket'
-    DeletionPolicy: Retain
+  MyEC2Instance:
+    Type: AWS::EC2::Instance
     Properties:
-      BucketName: aviv-s3
-      AccessControl: PublicRead
+      #we reference the InstanceType parameter
+      InstanceType: !Ref InstanceType
+      KeyName: !Ref KeyName
+      ImageId: ami-053b0d53c279acc90
+      Tags:
+      - Key: KeyName
+        Value: !Ref InstanceName
+Parameters:
+  InstanceTypeParameter:
+    Type: String
+    Default: t2.micro
+    AllowedValues:
+      - t2.micro
+      - m1.small
+      - m1.large
+    Description: Enter t2.micro, m1.small, or m1.large. Default is t2.micro.
