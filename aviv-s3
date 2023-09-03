@@ -7,7 +7,7 @@ Resources:
       KeyName: !Ref KeyName
       ImageId: ami-053b0d53c279acc90
       Tags:
-      - Key: KeyName
+      - Key: Name
         Value: !Ref InstanceName
 Parameters:
   InstanceTypeParameter:
